@@ -1,0 +1,303 @@
+/* 主样式文件 main.css */
+
+body {
+    background: #f5f6fa;
+    font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 顶部导航栏 */
+.editor-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    padding: 0 32px;
+    background: #1E9FFF;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(30,159,255,0.08);
+    position: relative;
+    z-index: 100;
+}
+.editor-navbar-left, .editor-navbar-center, .editor-navbar-right {
+    display: flex;
+    align-items: center;
+}
+.editor-logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 24px;
+    display: flex;
+    align-items: center;
+}
+.editor-navbar button, .editor-navbar a {
+    margin-right: 8px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.editor-navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+}
+.editor-navbar a:hover {
+    color: #ffd700;
+}
+
+/* 主体布局 */
+.editor-main {
+    display: flex;
+    height: calc(100vh - 56px - 32px);
+    min-height: 600px;
+}
+
+/* 左侧工具栏 */
+.editor-sidebar {
+    background: #fff;
+    border-right: 1px solid #e6e6e6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.03);
+    z-index: 10;
+}
+.editor-toolbar {
+    width: 100%;
+}
+.toolbar-group {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.toolbar-btn {
+    width: 44px;
+    height: 44px;
+    margin: 6px 0;
+    background: #f5f6fa;
+    border: none;
+    border-radius: 8px;
+    font-size: 22px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.toolbar-btn.active, .toolbar-btn:hover {
+    background: #1E9FFF;
+    color: #fff;
+}
+
+/* 左侧素材/图片区 */
+.editor-material-panel {
+    background: #fff;
+    border-right: 1px solid #e6e6e6;
+    padding: 16px 8px 0 8px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.material-search {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.material-search input {
+    border-radius: 6px 0 0 6px;
+    border: 1px solid #e6e6e6;
+    outline: none;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+.material-search button {
+    border-radius: 0 6px 6px 0;
+    border: 1px solid #e6e6e6;
+    border-left: none;
+    background: #f5f6fa;
+    color: #888;
+    font-size: 18px;
+    padding: 0 12px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.material-search button:hover {
+    background: #1E9FFF;
+    color: #fff;
+}
+.material-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-right: 4px;
+}
+.material-card {
+    width: 110px;
+    background: #f5f6fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.2s, background 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.material-card:hover {
+    background: #e6f7ff;
+    box-shadow: 0 4px 16px rgba(30,159,255,0.12);
+}
+.material-card img {
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
+}
+.material-title {
+    font-size: 13px;
+    color: #333;
+    padding: 6px 0;
+    text-align: center;
+}
+
+/* 中间画布区 */
+.editor-canvas-panel {
+    background: #f5f6fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.canvas-bg {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(30,159,255,0.08);
+    margin: 32px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#canvas {
+    display: block;
+    background: transparent;
+    border-radius: 8px;
+}
+.canvas-ruler-top {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    right: 0;
+    height: 24px;
+    background: repeating-linear-gradient(to right, #e6e6e6 0 1px, transparent 1px 40px);
+    z-index: 2;
+}
+.canvas-ruler-left {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    bottom: 0;
+    width: 24px;
+    background: repeating-linear-gradient(to bottom, #e6e6e6 0 1px, transparent 1px 40px);
+    z-index: 2;
+}
+
+/* 右侧属性/图层面板 */
+.editor-property-panel {
+    background: #fff;
+    border-left: 1px solid #e6e6e6;
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.property-tabs {
+    margin-top: 16px;
+}
+.property-group {
+    margin-bottom: 18px;
+    background: #f5f6fa;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.property-title {
+    font-size: 15px;
+    color: #1E9FFF;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.property-item {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+.property-input {
+    margin-left: 8px;
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    padding: 2px 8px;
+    font-size: 14px;
+}
+.layer-list {
+    max-height: 320px;
+    overflow-y: auto;
+}
+.layer-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    background: #f5f6fa;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.layer-item.active, .layer-item:hover {
+    background: #e6f7ff;
+}
+.layer-thumb {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+.layer-name {
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+}
+.layer-visibility, .layer-lock {
+    font-size: 18px;
+    color: #888;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.layer-visibility:hover, .layer-lock:hover {
+    color: #1E9FFF;
+}
+
+/* 底部状态栏 */
+.editor-status-bar {
+    height: 32px;
+    background: #fff;
+    border-top: 1px solid #e6e6e6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    font-size: 13px;
+    color: #666;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
+}
+.editor-status-info {
+    margin-left: 16px;
+} 

@@ -1,0 +1,254 @@
+@import './context-menu.css';
+@import './preview.css';
+
+/* 编辑器容器 */
+.editor-container {
+    display: flex;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #f5f5f5;
+}
+
+/* 工具栏 */
+.toolbar {
+    width: 200px;
+    background: #fff;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+/* 画布容器 */
+.canvas-container {
+    flex: 1;
+    padding: 10px;
+    background: #fff;
+    position: relative;
+    overflow: auto;
+}
+
+/* 属性面板 */
+.property-panel {
+    width: 300px;
+    background: #fff;
+    padding: 10px;
+    border-left: 1px solid #ddd;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+}
+
+/* 工具栏按钮组 */
+.toolbar-group {
+    margin-bottom: 15px;
+}
+
+.toolbar-group-title {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+    padding-left: 5px;
+    border-left: 3px solid #1E9FFF;
+}
+
+/* 画布背景网格 */
+.canvas-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 20px 20px;
+    background-image: 
+        linear-gradient(to right, #f0f0f0 1px, transparent 1px),
+        linear-gradient(to bottom, #f0f0f0 1px, transparent 1px);
+    pointer-events: none;
+}
+
+/* 标尺 */
+.ruler {
+    position: absolute;
+    background: #f5f5f5;
+    z-index: 100;
+}
+
+.ruler-h {
+    top: 0;
+    left: 20px;
+    right: 0;
+    height: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.ruler-v {
+    top: 20px;
+    left: 0;
+    bottom: 0;
+    width: 20px;
+    border-right: 1px solid #ddd;
+}
+
+/* 右键菜单 */
+.context-menu {
+    position: fixed;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.context-menu-item {
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.context-menu-item:hover {
+    background: #f5f5f5;
+}
+
+.context-menu-separator {
+    height: 1px;
+    background: #ddd;
+    margin: 5px 0;
+}
+
+/* 辅助线 */
+.guide-line {
+    position: absolute;
+    background: #1E9FFF;
+    z-index: 99;
+    pointer-events: none;
+}
+
+.guide-line-h {
+    height: 1px;
+    left: 0;
+    right: 0;
+}
+
+.guide-line-v {
+    width: 1px;
+    top: 0;
+    bottom: 0;
+}
+
+/* 状态栏 */
+.status-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    padding: 0 10px;
+    font-size: 12px;
+    line-height: 25px;
+    color: #666;
+}
+
+/* 加载遮罩 */
+.loading-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 工具栏图标 */
+.toolbar-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.toolbar-icon:hover {
+    background: #f5f5f5;
+}
+
+.toolbar-icon.active {
+    background: #1E9FFF;
+    color: #fff;
+}
+
+/* 属性面板表单 */
+.property-form {
+    padding: 10px;
+}
+
+.property-group {
+    margin-bottom: 15px;
+}
+
+.property-group-title {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+    padding-left: 5px;
+    border-left: 3px solid #1E9FFF;
+}
+
+/* 颜色选择器 */
+.color-picker {
+    display: flex;
+    align-items: center;
+}
+
+.color-preview {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}
+
+/* 图层列表 */
+.layer-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.layer-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.layer-item:hover {
+    background: #f5f5f5;
+}
+
+.layer-item.active {
+    background: #1E9FFF;
+    color: #fff;
+}
+
+.layer-visibility,
+.layer-lock {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+/* 快捷键提示 */
+.shortcut-tip {
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 1000;
+} 

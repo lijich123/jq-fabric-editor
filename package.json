@@ -1,0 +1,36 @@
+{
+  "name": "jq-fabric-editor",
+  "version": "1.0.0",
+  "description": "A powerful jQuery + Fabric.js based graphics editor with plugin architecture",
+  "main": "dist/jq-fabric-editor.js",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "test": "jest"
+  },
+  "keywords": [
+    "fabric.js",
+    "jquery",
+    "graphics-editor",
+    "canvas",
+    "design"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "fabric": "^5.3.0",
+    "jquery": "^3.7.1",
+    "layui": "^2.8.17"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.7",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+} 
